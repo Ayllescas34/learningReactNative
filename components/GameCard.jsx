@@ -1,17 +1,26 @@
 import { useEffect, useRef } from "react";
-import { View, StyleSheet, Text, Image, Animated } from "react-native";
+import { View, StyleSheet, Text, Image, Animated, Pressable } from "react-native";
+import { styled } from "nativewind";
+import { Link } from "expo-router";
 import { Score } from "./Score";
+
+const StylledPressable = styled(Pressable);
 
 export function GameCard({ game }) {
   return (
-    <View className="flex-row bg-slate-400/10 p-4 rounded-xl gap-4 mb-10 items-start" key={game.slug}>
-      <Image source={{ uri: game.image }} style={styles.image} />
-    <View className="flex-1 justify-between">
-      <Text className="mb-1" style={styles.title}>{game.title}</Text>
-      <Score score={game.score} maxScore={100}/>
-      <Text className="mt-2" style={styles.description}>{game.description}</Text>
+    <Link href={`/${game.slug}`} asChild>
+    <StylledPressable className="active:opasity-70 border border-black
+    active:border-white/50 mb-2">
+    <View className="flex-row  gap-4 mb-4" key={game.slug}>
+        <Image source={{ uri: game.image }} style={styles.image} />
+      <View className="flex-shrink">
+        <Text className="mb-1" style={styles.title}>{game.title}</Text>
+        <Score score={game.score} maxScore={100}/>
+        <Text className="mt-2" style={styles.description}>{game.description}</Text>
       </View>
     </View>
+    </StylledPressable>
+    </Link>
   );
 }
 
