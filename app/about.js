@@ -1,11 +1,13 @@
 import { Link } from "expo-router";
 import { Pressable, ScrollView, Text } from "react-native";
 import { HomeIcon } from "../components/Icons";
+import { Screen } from "../components/Screen";
 
 
 export default function About() {
     return (
-        <ScrollView className="pt-10">
+        <Screen>
+        <ScrollView>
 
             <Link asChild href="/" >
                 <Pressable>
@@ -93,5 +95,6 @@ export default function About() {
             </Text>
 
         </ScrollView>
+        </Screen>
     );
 }
