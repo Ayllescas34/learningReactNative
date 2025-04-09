@@ -1,0 +1,5 @@
+crear proyecto :
+npx create-expo-app@latest
+
+crear proyecto simple:
+npx create-expo-app@latest *name del proyecto* --template blank
